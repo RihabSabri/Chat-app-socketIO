@@ -1,0 +1,43 @@
+/* ********************** IMPORTS *******************/
+
+/************************** VARIABLES****************/
+:root {
+  --prm-drk-1: #181818;
+  --scd-drk-1: #202020;
+  --prm-drk-2: #252525;
+  --scd-drk-2: #474747;
+  --scd-drk-3: #d8d8d8;
+  --prm-blue-1: rgb(92, 225, 230);
+  --scd-blue-2: #008cff;
+  --light-1: #f0f7f7;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+/* **********************GLOBALS ***********************/
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+html {
+  background-color: var(--prm-drk-1);
+}
+body {
+  font-family: "Roboto", "cairo", sans-serif;
+  min-width: 100%;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}

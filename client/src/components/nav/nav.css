@@ -1,0 +1,20 @@
+.navigation {
+  background-color: var(--scd-blue-2);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-nav {
+  position: relative;
+  top: 0px;
+  left: -30px;
+  height: 60px;
+  width: 60px;
+}
+
+.nav-text {
+  color: var(--light-1);
+  letter-spacing: var(--spacing);
+}

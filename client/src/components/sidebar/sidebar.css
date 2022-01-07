@@ -1,0 +1,19 @@
+.current {
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+.result {
+  margin: 20px 0;
+  text-align: center;
+  color: var(--scd-drk-2);
+}
+
+.side-text {
+  font-size: 18px;
+  margin: 10px 0;
+  border: 1px solid var(--scd-blue-2);
+  padding: 0.5rem;
+  background-color: var(--scd-blue-2);
+  color: var(--light-1);
+}
