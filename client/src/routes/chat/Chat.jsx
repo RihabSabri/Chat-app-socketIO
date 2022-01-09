@@ -2,9 +2,9 @@ import React,{useState,useEffect}from 'react'
 import ScrollToBottom from 'react-scroll-to-bottom'
 import './chat.css'
 
-const Chat = ({socket,name,room}) => {
-    const [message,setMessage]=useState('')
-    const[messageList,setMessageList]=useState([])
+const Chat = ({socket,name,room,msg}) => {
+    const [message,setMessage]=useState()
+    const[messageList,setMessageList]=useState([msg])
     const[adminMessage,setAdminMessage]=useState([])
 
  
@@ -20,12 +20,11 @@ const Chat = ({socket,name,room}) => {
         }
     }
 
-    useEffect(() => {
-        socket.on('message',socket.on('message',(data)=>{setMessageList((list)=>[...list,data])
-        console.log(adminMessage)}))
+     useEffect(() => {
+        socket.on('message',(data)=>{setMessageList((list)=>[...list,data])
+        console.log(adminMessage)})
          socket.on('receiveMmessage',(data)=>{
           setMessageList((list)=>[...list,data]);
-       
         })
     }, [socket])
 

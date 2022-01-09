@@ -16,4 +16,6 @@
   padding: 0.5rem;
   background-color: var(--scd-blue-2);
   color: var(--light-1);
+  text-align: center;
+  cursor: pointer;
 }

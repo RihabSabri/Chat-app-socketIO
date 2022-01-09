@@ -21,12 +21,10 @@ io.on("connection", (socket) => {
       sender: "admin",
       message: `${data.name}, welcome to  ${data.room} !!.`,
     });
-    socket.broadcast
-      .to(data.room)
-      .emit("message", {
-        sender: "admin",
-        message: `${data.name} has joined!`,
-      });
+    socket.broadcast.to(data.room).emit("message", {
+      sender: "admin",
+      message: `${data.name} has joined!`,
+    });
   });
   socket.on("sendMessage", (data) => {
     socket.to(data.room).emit("receiveMmessage", data);
