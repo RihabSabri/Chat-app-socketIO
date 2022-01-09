@@ -12,10 +12,19 @@ const io = new Server(server, {
   cors: { origin: "http://localhost:3000", methods: ["GET", "POST"] },
 });
 
+const users = [];
+
 io.on("connection", (socket) => {
   console.log(`user ${socket.id} has joined`);
   socket.on("join", (data) => {
     socket.join(data.room);
+    const user = data.name;
+    users.push(user);
+    roomUsers = users.filter((user) => user.room === user.room);
+
+    io.in(data.room).emit("GetUsers", {
+      users: roomUsers,
+    });
     console.log(`User with ID: ${socket.id} joined room: ${data.room}`);
     socket.emit("message", {
       sender: "admin",

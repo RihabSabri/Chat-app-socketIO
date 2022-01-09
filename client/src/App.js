@@ -17,18 +17,23 @@ const options = [
 function App() {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
+  const [users, setUsers] = useState([]);
   const [adminMsg, setAdminMsg] = useState("");
   const [showChat, setShowChat] = useState(false);
 
   const joinRoom = () => {
     if (name !== "" && room !== "") {
-      socket.emit("join", { name, room });
+      socket.emit("join", { name, room, users });
       socket.on("message", (message) => {
         setAdminMsg(message);
+
         setShowChat(true);
       });
     }
   };
+  socket.on("GetUsers", ({ users }) => {
+    setUsers(users);
+  });
   return (
     <div className="App login-container">
       {!showChat ? (
@@ -43,14 +48,6 @@ function App() {
               setName(event.target.value);
             }}
           />
-          {/* <input
-            className="form-input"
-            type="text"
-            placeholder="room"
-            onChange={(event) => {
-              setRoom(event.target.value);
-            }}
-          /> */}
           <select
             name="room"
             className="form-input"
@@ -77,7 +74,7 @@ function App() {
         <div>
           <Nav />
           <div className="side-by-side">
-            <Sidebar socket={socket} name={name} room={room} />
+            <Sidebar room={room} users={users} />
             <Chat socket={socket} name={name} room={room} msg={adminMsg} />
           </div>
         </div>
